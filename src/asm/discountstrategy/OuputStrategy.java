@@ -17,5 +17,5 @@ public interface OuputStrategy {
     public final static String TOTAL_BEFORE_DISCOUNT = "Total Before Discount: ";
     public final static String AMOUNT_SAVED = "Total Savings: ";
     
-    public void outputReceipt(Receipt receipt);
+    public void outputReceipt(LineItem[] item);
 }

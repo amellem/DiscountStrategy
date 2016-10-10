@@ -7,8 +7,10 @@ package asm.discountstrategy;
 public class MonitorOutput implements OuputStrategy{
 
     @Override
-    public String outputReceipt(LineItem receipt) {
+    public void outputReceipt(LineItem[] item) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

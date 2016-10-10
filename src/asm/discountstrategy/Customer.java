@@ -4,10 +4,10 @@ package asm.discountstrategy;
  *
  * @author amellem
  */
-public class Customer extends InMemoryDatabase{
-   private String customerID;
-   private String firstName;
-   private String lastName;
+public class Customer {
+    private String customerID;
+    private String firstName;
+    private String lastName;
 
     public Customer(String customerID, String firstName, String lastName) {
         this.customerID = customerID;

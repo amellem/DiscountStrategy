@@ -9,6 +9,8 @@ public class QtyDiscount implements DiscountStrategy {
     private double minQty = 2;
 
     public QtyDiscount(double rate, int minQty) {
+        this.rate =  rate;
+        this.minQty = minQty;
     }
 
     public final double getRate() {
@@ -34,7 +36,7 @@ public class QtyDiscount implements DiscountStrategy {
         if(qty>=minQty){
             return unitPrice * qty * rate;
         } else {
-            return unitPrice * qty;
+            return 0.00;
         }
     }
 

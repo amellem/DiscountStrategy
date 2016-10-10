@@ -5,13 +5,14 @@ package asm.discountstrategy;
  * @author amellem
  */
 public class InMemoryDatabase implements DatabaseStrategy{
-    private final Customer[] customers = {
+    
+    private Customer[] customers = {
       new Customer("C100", "Andrew", "Smith"),
       new Customer("C101", "Matt", "Jones"),
       new Customer("C102", "Ashley", "Michelles")
     };
     
-    private final Product[] products = {
+    private Product[] products = {
         new Product("P100", "Popcorn", 10.99, new QtyDiscount(.10, 2)),
         new Product("P102", "Potato Chips", 7.99, new QtyDiscount(.10, 2)),
         new Product("P103", "T-Shirt", 12.99, new QtyDiscount(.10, 2)),

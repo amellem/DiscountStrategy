@@ -7,36 +7,17 @@ package asm.discountstrategy;
 public class LineItem {
     private Product product;
     private double qty;
+    private double discountAmount;
 
-    public LineItem(String productID, double qty, DatabaseStrategy db) {
-        setQty(qty);
-        setProduct(db.findProductByID(productID));
+    public LineItem(Product product) {
+        this.product = product;
+        this.qty = product.getQuantity();
+        this.discountAmount = product.getDiscount();
         
     }
 
     public final Product getProduct() {
         return product;
-    }
-
-    public final void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public final double getQty() {
-        return qty;
-    }
-
-    public final void setQty(double qty) {
-        this.qty = qty;
-    }
-
-    public final double getSubTotal() {
-        return product.getDiscount().getDiscountAmount(qty, product.getUnitPrice());
-    }
-
-
-    public final double getGrandTotal() {
-        return 0.00;
     }
   
 }

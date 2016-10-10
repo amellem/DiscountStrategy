@@ -7,14 +7,13 @@ package asm.discountstrategy;
 
 public class Receipt {
     private Customer customer;
+    private Product product;
     private DatabaseStrategy db;
-    private LineItem[] lineItems;
+    private LineItem[] lineItems = new LineItem[0];
     
     public Receipt(String customerID, DatabaseStrategy db){
-        setDb(db);
-        customer = findCustomerByID(customerID);
-        lineItems = new LineItem[0];
-        
+        this.db = db;
+        customer = db.findCustomerByID(customerID);     
     }
     
     public final DatabaseStrategy getDb(){
@@ -35,7 +34,9 @@ public class Receipt {
     }
     
     public final void addItemToReceipt(String productID, double qty){
-        LineItem item = new LineItem(productID, qty, db);
+        product = db.findProductByID(productID);
+        product.setQuantity(qty);
+        LineItem item = new LineItem(product);
         addItemToArray(lineItems, item);
         
     }
@@ -48,8 +49,9 @@ public class Receipt {
         lineItems = origArray;
     }
     
-    public final LineItem[] getLineItems(){
-        return lineItems;
+    public final void getLineItems(OuputStrategy output){
+      
+        output.outputReceipt(lineItems);
     }
     
 }

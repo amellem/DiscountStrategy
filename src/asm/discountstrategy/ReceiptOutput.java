@@ -10,15 +10,15 @@ public class ReceiptOutput implements OuputStrategy{
     double totalAfterDiscount = 0;
     double totalDiscount = 0;
 @Override
-public final void outputReceipt(Receipt item){
+public final void outputReceipt(LineItem[] item){
     
  
-    LineItem[] items = receipt.getLineItems();
-    for(LineItem i : items){
-        totalBeforeDiscount += i.getProduct().getUnitPrice();
+    
+    for(LineItem i : item){
+        System.out.println(i.getProduct());
         
     }
-    System.out.println(totalBeforeDiscount);
+    
     
 }
     

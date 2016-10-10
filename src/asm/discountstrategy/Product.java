@@ -4,10 +4,11 @@ package asm.discountstrategy;
  *
  * @author amellem
  */
-public class Product extends InMemoryDatabase{
+public class Product {
     private String productID;
     private String name;
     private double unitPrice;
+    private double quantity;
     private DiscountStrategy discount;
 
     public Product(String productID, String name, double unitPrice, DiscountStrategy discount) {
@@ -15,7 +16,8 @@ public class Product extends InMemoryDatabase{
         this.name = name;
         this.unitPrice = unitPrice;
         this.discount = discount;
-    }
+        
+     }
 
     public final String getProductID() {
         return productID;
@@ -40,9 +42,17 @@ public class Product extends InMemoryDatabase{
     public final void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
+    
+    public final double getQuantity(){
+        return quantity;
+    }
+    
+    public final void setQuantity(double quantity){
+        this.quantity = quantity;
+    }
 
-    public final DiscountStrategy getDiscount() {
-        return discount;
+    public final double getDiscount() {
+        return discount.getDiscountAmount(quantity, unitPrice);
     }
 
     public final void setDiscount(DiscountStrategy discount) {
