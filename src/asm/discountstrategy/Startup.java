@@ -16,7 +16,7 @@ public class Startup {
         OutputStrategy guiOutput = new MonitorOutput();
        
        
-       pos.startNewSale("100", db);
+       pos.startNewSale("C100", db);
        pos.addNewProductToSale("P100", 2.0);
        pos.addNewProductToSale("P102", 4.0);
        pos.addNewProductToSale("P103", 1.0);
