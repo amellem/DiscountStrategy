@@ -49,9 +49,10 @@ public class Receipt {
         lineItems = origArray;
     }
     
-    public final void getLineItems(OuputStrategy output){
-      
-        output.outputReceipt(lineItems);
+    public final void getLineItems(OutputStrategy output){
+        
+        output.createReceipt(customer, lineItems);
+        output.outputReceipt();
     }
     
 }

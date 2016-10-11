@@ -15,8 +15,8 @@ public class PosTerminal {
     }
     
     
-    public final void endSale(OuputStrategy output){
-        receipt.getLineItems(output);
+    public final void endSale(OutputStrategy output){
+        receipt.getLineItems(output);        
         }
    
 }
