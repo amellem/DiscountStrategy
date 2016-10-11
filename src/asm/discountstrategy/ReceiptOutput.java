@@ -13,8 +13,7 @@ public class ReceiptOutput implements OutputStrategy{
     
 @Override
 public final void createReceipt(Customer customer, LineItem[] item){
-    
-    
+       
     
     receiptData += "\t\t     Kohl's\n-----------------------------------------------\n\nCustomer: " + customer.getFirstName() + " " + customer.getLastName() + "\n\n";
         for (LineItem i : item){

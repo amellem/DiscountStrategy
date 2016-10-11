@@ -10,9 +10,9 @@ public class Customer {
     private String lastName;
 
     public Customer(String customerID, String firstName, String lastName) {
-        this.customerID = customerID;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        setCustomerID(customerID);
+        setFirstName(firstName);
+        setLastName(lastName);
     }
 
     public final String getCustomerID() {
