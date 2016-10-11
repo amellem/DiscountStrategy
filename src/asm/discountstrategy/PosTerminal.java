@@ -1,6 +1,7 @@
 package asm.discountstrategy;
 
 
+
 public class PosTerminal {
     private Receipt receipt;
     

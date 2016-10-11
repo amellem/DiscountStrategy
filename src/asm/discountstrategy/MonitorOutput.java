@@ -1,19 +1,42 @@
 package asm.discountstrategy;
 
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 /**
  *
  * @author amellem
  */
 public class MonitorOutput implements OutputStrategy{
 
-    @Override
-    public void createReceipt(LineItem[] item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    private double totalBeforeDiscount;
+    private double totalDiscount;
+    private String receiptData = "";
+    DecimalFormat convertMoney = new DecimalFormat("#0.00");
+    
+@Override
+public final void createReceipt(Customer customer, LineItem[] item){
+    
+    
+    
+    receiptData += "\t\t     Kohl's\n-----------------------------------------------\n\nCustomer: " + customer.getFirstName() + " " + customer.getLastName() + "\n\n";
+        for (LineItem i : item){
+            receiptData += i.getProduct().getName() + "\t\tQty: " + i.getProduct().getQuantity() + "\t\t" + i.getProduct().getProductID() + "\t" + convertMoney.format((i.getProduct().getUnitPrice() * i.getProduct().getQuantity()) - i.getProduct().getDiscount()) + "\n" +
+                    "    Item cost: " + convertMoney.format(i.getProduct().getUnitPrice()) + "\t    You save: " + convertMoney.format(i.getProduct().getDiscount()) + "\n\n";
+            totalBeforeDiscount += i.getProduct().getUnitPrice() * i.getProduct().getQuantity();
+            totalDiscount += i.getProduct().getDiscount();            
+        }
+        
+        receiptData += "\t\t\t      Subtotal: " + convertMoney.format(totalBeforeDiscount) + "\n\t\t\t      Discount: " + convertMoney.format(totalDiscount) + 
+                "-\n\t\t\t\t Total: " + convertMoney.format(totalBeforeDiscount - totalDiscount) + "\n\n-----------------------------------------------\n" +
+                "\tThank you for shopping at Kohl's!\n" ;
+    
+   
+}
 
     @Override
-    public void outputReceipt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public final void outputReceipt() {
+        JOptionPane.showMessageDialog(null, new JTextArea(receiptData));
     }
 
    
